@@ -4,6 +4,7 @@ INFORME DE PRUEBAS REALIZADAS
 
 Fecha: 21/06/2025 
 Nombre del tester: Kevin Romero Mero
+Link de GitHub: https://github.com/KEVINRO26/PracticaSeleniumUno.git
 
 1. HALLAZGOS DETECTADOS
 ------------------------------
