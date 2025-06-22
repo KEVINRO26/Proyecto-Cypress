@@ -14,7 +14,7 @@ REQUISITOS PREVIOS
 PASOS DE INSTALACIÓN
 ------------------------------
 1. Clonar o descargar este repositorio
-   - Clonar: git clone [URL_DEL_REPOSITORIO]
+   - Clonar: git clone https://github.com/KEVINRO26/Proyecto-Cypress.git
    - O descargar como .zip y descomprimir
 
 2. Navegar a la carpeta del proyecto:
