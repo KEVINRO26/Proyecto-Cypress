@@ -1,0 +1,47 @@
+==============================
+INFORME DE PRUEBAS REALIZADAS
+==============================
+
+Fecha: 21/06/2025 
+Nombre del tester: Kevin Romero Mero
+
+1. HALLAZGOS DETECTADOS
+------------------------------
+Durante la ejecución de las pruebas automatizadas con Cypress sobre la página https://demo.testim.io/checkout se detectaron los siguientes inconvenientes:
+
+1. La selección de fechas no permite retroceder a días anteriores a la fecha actual, lo cual es adecuado, pero no se muestra un mensaje informativo al usuario explicando la restricción.
+
+2. El campo de número de teléfono (Phone number) presenta múltiples problemas:
+   - No indica claramente el formato esperado.
+   - No valida correctamente números internacionales válidos.
+   - Permite ingresar una cantidad excesiva de dígitos sin ningún límite aparente.
+   - Acepta caracteres no numéricos como letras, lo cual no debería estar permitido.
+   - Muestra un error relacionado con un código de país 419 no reconocido.
+
+3. El campo "Full Name" acepta caracteres numéricos, lo cual no es adecuado si se busca validar solo texto.
+
+4. El campo "Social Security Number" permite ingresar letras, lo cual invalida el propósito del campo y puede ocasionar errores de procesamiento.
+
+5. El botón "Pay Now" permanece deshabilitado, incluso si todos los campos están llenos, lo que impide completar el flujo de compra.
+
+6. Al cargar una imagen (por ejemplo, carnet.png), se muestra una imagen diferente a la que fue seleccionada, lo cual puede deberse a un error de back-end o visualización.
+
+7. La mayoría de los elementos del formulario no tienen identificadores (`id`) únicos, dificultando su automatización y selección confiable durante las pruebas.
+
+2. CONCLUSIONES
+------------------------------
+- La interfaz es visualmente clara, pero funcionalmente presenta errores importantes en la validación de entradas, lo cual afecta la experiencia del usuario y compromete la fiabilidad del sistema.
+- Existen bloqueos importantes en el flujo de compra, principalmente por la validación del teléfono y el botón inhabilitado.
+- Desde el enfoque de testing, la ausencia de identificadores específicos en los elementos HTML dificulta el mantenimiento de las pruebas automatizadas.
+
+3. RECOMENDACIONES DE MEJORA
+------------------------------
+- Mostrar mensajes claros y visibles para explicar restricciones de selección de fechas.
+- Aplicar expresiones regulares adecuadas para validar los campos:
+  - El campo "Nombre" debería permitir solo letras y espacios.
+  - El campo "Teléfono" debería aceptar únicamente números válidos según el país.
+  - El campo "SSN" debería permitir solo números en un formato específico (ej. XXX-XX-XXXX).
+- Corregir la lógica del botón "Pay Now" para que se habilite una vez que todos los campos estén correctamente validados.
+- Solucionar el problema de visualización incorrecta de la imagen cargada.
+- Añadir atributos `id` o `data-testid` únicos a los campos del formulario para facilitar pruebas automatizadas robustas y precisas.
+
