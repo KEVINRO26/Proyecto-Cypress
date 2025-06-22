@@ -164,5 +164,8 @@ describe('Primera Practica', () => {
 
     //Presionar boton de "Pagar"
     cy.get(':nth-child(8) > .flexboxgrid__col-xs___1ROHR').click()
+    cy.log('⚠️ El botón Pagar no se encuentra activo')
+
+
     })
   })
