@@ -3,10 +3,10 @@ describe('Primera Practica', () => {
     it('Ejercicio numero #1', () => {
       cy.visit('/')
       cy.title().then((titulo) => {
-        if (titulo.includes('Space & Beyond space| Testim.io demo')) {
-          cy.log('✅ El título es correcto')
+        if (titulo === 'Space & Beyond space| Testim.io demo') {
+          cy.log('✅ El título es correcto');
         } else {
-          cy.log('⚠️ El título no coincide: ' + titulo)
+          cy.log('⚠️ El título no coincide: ' + titulo);
         }
       })
     })
